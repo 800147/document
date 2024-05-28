@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Document.css example — web tools from 800147.github.io</title>
+    <meta name="description" content="Styles for your documents" />
+    <link
+      rel="stylesheet"
+      href="https://800147.github.io/document/src/document.css"
+    />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="icon" type="image/png" href="./favicon.png" />
+    <script type="module">
+      // https://highlightjs.org/usage/
+      import hljs from "https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/es/highlight.min.js";
+      hljs.highlightAll();
+    </script>
+  </head>
+  <body class="Document">
+    <nav class="Document-Breadcrumbs">
+      <ul>
+        <li><a href="/">800147.github.io</a></li>
+        <li><a href="/tools">tools</a></li>
+        <li><a href="./">Document.css</a></li>
+      </ul>
+    </nav>
+    <main>
+      <h1>Document.css example</h1>
+
+      <h2>Header 2</h2>
+      <h3>Header 3</h3>
+      <h4>Header 4</h4>
+      <h5>Header 5</h5>
+      <h6>Header 6 (who needs this anyway?)</h6>
+
+      <p>
+        Paragraph, containing text with different styles such as <b>bold</b>,
+        <i>italic</i>, <b><i>bold italic</i></b
+        >, and also inline elements as <code>code</code>, <a href="">link</a>,
+        <q>quote</q> and
+        <button onclick="alert('button was clicked');">button</button>.
+      </p>
+      <hr />
+      <p>Paragraph, separated with previous paragraph by horisontal line.</p>
+
+      <ol>
+        <li>Ordered list element 1</li>
+        <li>Ordered list element 2</li>
+        <li>
+          Ordered list element 3 with sublist
+          <ul>
+            <li>Unordered sublist element 1</li>
+            <li>Unordered sublist element 2</li>
+            <li>Unordered sublist element 3</li>
+          </ul>
+        </li>
+      </ol>
+      <pre><code class="language-javascript">// Code section with highlightjs syntax highlight
+
+console.log('Hello World!');</code></pre>
+
+      <figure>
+        <img
+          src="images/image.svg"
+          alt="example image"
+          width="480"
+          height="300"
+        />
+        <figcaption>figure with image and figcaption</figcaption>
+      </figure>
+
+      <figure>
+        <button onclick="alert('button was clicked');">
+          button as figure content
+        </button>
+        <figcaption>figcaption for button</figcaption>
+      </figure>
+
+      <blockquote>Blockquote</blockquote>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Table</th>
+            <th>column 2</th>
+            <th>column 3</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>row 2</td>
+            <td>cell</td>
+            <td>cell</td>
+          </tr>
+          <tr>
+            <td>row 3</td>
+            <td>cell</td>
+            <td>cell</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Guide</h2>
+      <p>The guide of Document.css can be found <a href="./">here</a>.</p>
+    </main>
+    <!-- <div class="Document-Rulers">
+      <div class="Document-Ruler Document-Ruler_4xl" draggable="true"></div>
+      <div class="Document-Ruler Document-Ruler_3xl" draggable="true"></div>
+      <div class="Document-Ruler Document-Ruler_2xl" draggable="true"></div>
+      <div class="Document-Ruler Document-Ruler_xl" draggable="true"></div>
+      <div class="Document-Ruler Document-Ruler_l" draggable="true"></div>
+      <div class="Document-Ruler Document-Ruler_m" draggable="true"></div>
+    </div> -->
+  </body>
+</html>

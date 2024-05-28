@@ -1,4 +1,4 @@
-/* About Document.css: https://800147.github.io/tools/Document/ */
+/* About Document.css: https://800147.github.io/document/about */
 
 @font-face {
   font-family: "PT Serif";
@@ -262,6 +262,7 @@
   --red-color: var(--red-5);
   --purple-color: var(--purple-4);
   --brown-color: var(--brown-4);
+  --grey-color: var(--dark-1);
 
   --accent-color: var(--green-color);
   --accent-bg-color: var(--light-2);
@@ -283,6 +284,7 @@
     --red-color: var(--red-2);
     --purple-color: var(--purple-2);
     --brown-color: var(--brown-2);
+    --grey-color: var(--light-4);
 
     --accent-bg-color: var(--dark-3);
   }
@@ -497,10 +499,10 @@ body.Document main {
   padding: 0;
   margin: 0 auto;
   border: calc(var(--size-l) / 2) solid var(--weak-color);
-  border-radius: calc(var(--size-l) / 2);
+  border-radius: var(--size-xs);
   margin-top: var(--margin-top);
   --margin-top: var(--size-xl);
-  width: calc(var(--multiplier-s) * 100%);
+  width: calc(var(--multiplier-xs) * 100%);
 }
 .Document hr + *:not(.Document-Exclude):not(.Document-Exclude *) {
   --margin-top: var(--size-xl);
@@ -648,6 +650,28 @@ body.Document main {
 .Document code:not(pre > code):not(.Document-Exclude):not(.Document-Exclude *) {
   color: var(--code-color);
   line-height: 0;
+}
+
+/* code {
+  position: relative;
+  display: block;
+  width: max-content;
+}
+
+code::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  right: calc(-1 * var(--size-l));
+} */
+
+pre {
+  display: grid;
+}
+
+code {
+  display: inline;
 }
 
 /* Images */

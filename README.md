@@ -1,5 +1,5 @@
-# @800147/document
+# Document.css
 
-![icon](src/favicon.svg)
+![icon](./favicon.svg)
 
-<https://800147.github.io/tools/Document/>
+<https://800147.github.io/document>
