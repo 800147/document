@@ -652,28 +652,6 @@ body.Document main {
   line-height: 0;
 }
 
-/* code {
-  position: relative;
-  display: block;
-  width: max-content;
-}
-
-code::before {
-  content: "";
-  display: block;
-  position: absolute;
-  left: 0;
-  right: calc(-1 * var(--size-l));
-} */
-
-pre {
-  display: grid;
-}
-
-code {
-  display: inline;
-}
-
 /* Images */
 .Document figure:not(.Document-Exclude):not(.Document-Exclude *) {
   padding: 0;
