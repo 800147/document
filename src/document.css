@@ -751,7 +751,7 @@ code {
   }
 }
 
-/* For indents testing ( https://800147.github.io/tools/Document/indents ) */
+/* For indents testing ( https://800147.github.io/document/indents ) */
 .Document-Rulers {
   position: fixed;
   top: 0;
