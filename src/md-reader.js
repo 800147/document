@@ -1,34 +1,36 @@
 // https://markdown-it.github.io/markdown-it/
 import "https://cdn.jsdelivr.net/npm/markdown-it@13.0.1/dist/markdown-it.min.js";
 
-const onload = async () => {
-  const md = document.querySelector("noscript").innerText;
+// pre tag hide
+const preNoscript = document.querySelector(
+  "pre>noscript:first-child:last-child"
+);
 
-  document.body.classList.add("Document");
-  document.body.appendChild(
-    Object.assign(document.createElement("main"), {
-      innerHTML: window
-        .markdownit({ html: true, xhtmlOut: true, linkify: true })
-        .render(md),
-    })
-  );
+if (preNoscript) {
+  preNoscript.parentNode.style = "display: none;";
+}
 
-  // pre tag hide
-  const preNoscript = document.querySelector(
-    "pre>noscript:first-child:last-child"
-  );
+// turn on Document styles
+document.body.classList.add("Document");
 
-  if (preNoscript) {
-    preNoscript.parentNode.style = "display: none;";
-  }
+// convert markdown
+const md = document.querySelector("noscript").innerText;
+const main = document.createElement("main");
 
-  // https://highlightjs.org/usage/
-  const { default: hljs } = await import(
-    "https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/es/highlight.min.js"
-  );
-  hljs.highlightAll();
-};
+main.insertAdjacentHTML(
+  "afterbegin",
+  window.markdownit({ html: true, xhtmlOut: true, linkify: true }).render(md)
+);
 
-document.readyState === "loading"
-  ? document.addEventListener("DOMContentLoaded", onload)
-  : onload();
+document.body.appendChild(main);
+
+// run highlightjs if there is at least one code block
+if (document.querySelector("pre>code:first-child:last-child")) {
+  (async () => {
+    // https://highlightjs.org/usage/
+    const { default: hljs } = await import(
+      "https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/es/highlight.min.js"
+    );
+    hljs.highlightAll();
+  })();
+}
