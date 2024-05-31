@@ -1,3 +1,5 @@
+// about: https://800147.github.io/document/md-reader
+
 // https://markdown-it.github.io/markdown-it/
 import "https://cdn.jsdelivr.net/npm/markdown-it@13.0.1/dist/markdown-it.min.js";
 
