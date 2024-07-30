@@ -659,7 +659,10 @@ body.Document main {
   margin-top: var(--size-xl);
   text-align: center;
 }
-.Document figure > img:not(.Document-Exclude):not(.Document-Exclude *) {
+.Document
+  :is(figure > img, figure > picture > img):not(.Document-Exclude):not(
+    .Document-Exclude *
+  ) {
   border-radius: var(--size-m);
   display: block;
   max-width: 100%;
@@ -669,7 +672,10 @@ body.Document main {
   background-color: var(--light-3);
 }
 @media (prefers-color-scheme: dark) {
-  .Document figure > img:not(.Document-Exclude):not(.Document-Exclude *) {
+  .Document
+    :is(figure > img, figure > picture > img):not(.Document-Exclude):not(
+      .Document-Exclude *
+    ) {
     box-shadow: 0 0 var(--size-m) var(--dark-2);
     background-color: var(--dark-3);
   }
