@@ -329,7 +329,7 @@ body.Document main {
         ul,
         figcaption,
         table
-      ):not(.Document-Exclude):not(.Document-Exclude *),
+      ):where(:not(.Document-Exclude):not(.Document-Exclude *)),
     .Document-Text
   ) {
   /* make --margin-top non-inherited property */
@@ -339,20 +339,20 @@ body.Document main {
   li
   > ul:not(
     :is(section, p, h1, h2, h3, h4, h5, h6, pre, blockquote, ul) + *
-  ):not(.Document-Exclude):not(.Document-Exclude *) {
+  ):where(:not(.Document-Exclude):not(.Document-Exclude *)) {
   --margin-top: calc(var(--offset-bottom) * -1);
 }
 .Document
   li
   > :is(section, p, h1, h2, h3, h4, h5, h6, pre, blockquote):not(
     :is(section, p, h1, h2, h3, h4, h5, h6, pre, blockquote, ul) + *
-  ):not(.Document-Exclude):not(.Document-Exclude *) {
+  ):where(:not(.Document-Exclude):not(.Document-Exclude *)) {
   --margin-top: calc(var(--size-xl) + var(--offset-top) - var(--offset-bottom));
 }
-.Document section:not(.Document-Exclude):not(.Document-Exclude *) {
+.Document section:where(:not(.Document-Exclude):not(.Document-Exclude *)) {
   margin-top: var(--margin-top);
 }
-.Document ul:not(.Document-Exclude):not(.Document-Exclude *) {
+.Document ul:where(:not(.Document-Exclude):not(.Document-Exclude *)) {
   margin-top: calc(var(--margin-top) + var(--offset-top));
 }
 
@@ -374,9 +374,10 @@ body.Document main {
     figcaption,
     td,
     th
-  ):not(.Document-Exclude):not(.Document-Exclude *),
-.Document-Breadcrumbs ul:not(.Document-Exclude):not(.Document-Exclude *),
-.Document button:not(.Document-Exclude):not(.Document-Exclude *),
+  ):where(:not(.Document-Exclude):not(.Document-Exclude *)),
+.Document-Breadcrumbs ul,
+.Document-Lang,
+.Document button:where(:not(.Document-Exclude):not(.Document-Exclude *)),
 .Document-Text,
 .Document-Button {
   font-size: calc(var(--size) * var(--size-multiplier));
@@ -389,13 +390,15 @@ body.Document main {
   margin-bottom: var(--offset-bottom);
 }
 .Document
-  :is(p, li, h1, h2, h3, h4, h5, h6, blockquote):not(.Document-Exclude):not(
-    .Document-Exclude *
+  :is(p, li, h1, h2, h3, h4, h5, h6, blockquote):where(
+    :not(.Document-Exclude):not(.Document-Exclude *)
   ) {
   word-break: break-word;
 }
 .Document
-  :is(p, li, td, q, blockquote):not(.Document-Exclude):not(.Document-Exclude *),
+  :is(p, li, td, q, blockquote):where(
+    :not(.Document-Exclude):not(.Document-Exclude *)
+  ),
 .Document-Text,
 .Document-Text_serif {
   font-family: "PT Serif", fallback-for-PT-Serif-1, fallback-for-PT-Serif-2,
@@ -406,7 +409,9 @@ body.Document main {
   --offset-top: -0.532em;
 }
 .Document
-  :is(h1, h2, h3, h5, h6):not(.Document-Exclude):not(.Document-Exclude *),
+  :is(h1, h2, h3, h5, h6):where(
+    :not(.Document-Exclude):not(.Document-Exclude *)
+  ),
 .Document-Text_serifCaption {
   font-family: "PT Serif Caption", fallback-for-PT-Serif-Caption-1,
     fallback-for-PT-Serif-Caption-2, serif;
@@ -415,7 +420,7 @@ body.Document main {
   --size-multiplier: 1.904761905;
   --offset-top: -0.538em;
 }
-.Document :is(h4, th):not(.Document-Exclude):not(.Document-Exclude *) {
+.Document :is(h4, th):where(:not(.Document-Exclude):not(.Document-Exclude *)) {
   font-family: "PT Serif", fallback-for-PT-Serif-Bold-1,
     fallback-for-PT-Serif-Bold-2, serif;
   font-weight: bold;
@@ -423,7 +428,8 @@ body.Document main {
   --size-multiplier: 2;
   --offset-top: -0.532em;
 }
-.Document :is(pre, code):not(.Document-Exclude):not(.Document-Exclude *),
+.Document
+  :is(pre, code):where(:not(.Document-Exclude):not(.Document-Exclude *)),
 .Document-Text_monotype {
   font-family: "JetBrains Mono", fallback-for-JetBrains-Mono-1,
     fallback-for-JetBrains-Mono-2, monospace;
@@ -433,10 +439,11 @@ body.Document main {
   --offset-top: -0.52em;
   font-variant-ligatures: none;
 }
-.Document-Breadcrumbs:not(.Document-Exclude):not(.Document-Exclude *),
-.Document-Breadcrumbs
-  :is(ul, li):not(.Document-Exclude):not(.Document-Exclude *),
-.Document button:not(.Document-Exclude):not(.Document-Exclude *),
+.Document-Breadcrumbs,
+.Document-Breadcrumbs :is(ul, li),
+.Document-Lang,
+.Document-Lang li,
+.Document button:where(:not(.Document-Exclude):not(.Document-Exclude *)),
 .Document-Text_sansSerif,
 .Document .Document-Button {
   font-family: "PT Sans", fallback-for-PT-Sans-1, fallback-for-PT-Sans-2,
@@ -446,7 +453,7 @@ body.Document main {
   --size-multiplier: 2;
   --offset-top: -0.526em;
 }
-.Document figcaption:not(.Document-Exclude):not(.Document-Exclude *) {
+.Document figcaption:where(:not(.Document-Exclude):not(.Document-Exclude *)) {
   font-family: "PT Sans", fallback-for-PT-Sans-1, fallback-for-PT-Sans-2,
     sans-serif;
   font-weight: normal;
@@ -459,43 +466,43 @@ body.Document main {
 /* Heading */
 .Document
   :is(h1, h2, h3, h4, h5, h6)
-  + *:not(.Document-Exclude):not(.Document-Exclude *) {
+  + *:where(:not(.Document-Exclude):not(.Document-Exclude *)) {
   --margin-top: var(--size-2xl);
 }
-.Document h1:not(.Document-Exclude):not(.Document-Exclude *) {
+.Document h1:where(:not(.Document-Exclude):not(.Document-Exclude *)) {
   --size: var(--size-2xl);
   --line-gap: var(--multiplier-m);
   --offset-top: -0.375em;
   --margin-top: var(--size-4xl);
 }
-.Document h2:not(.Document-Exclude):not(.Document-Exclude *) {
+.Document h2:where(:not(.Document-Exclude):not(.Document-Exclude *)) {
   --size: var(--size-xl);
   --line-gap: var(--multiplier-m);
   --offset-top: -0.375em;
   --margin-top: var(--size-3xl);
   color: var(--accent-color);
 }
-.Document h3:not(.Document-Exclude):not(.Document-Exclude *) {
+.Document h3:where(:not(.Document-Exclude):not(.Document-Exclude *)) {
   --size: var(--size-l);
   --margin-top: var(--size-3xl);
 }
-.Document h4:not(.Document-Exclude):not(.Document-Exclude *) {
+.Document h4:where(:not(.Document-Exclude):not(.Document-Exclude *)) {
   --size: var(--size-m);
   --margin-top: var(--size-3xl);
   color: var(--strong-color);
 }
 /* Just do not use these two lol */
-.Document h5:not(.Document-Exclude):not(.Document-Exclude *) {
+.Document h5:where(:not(.Document-Exclude):not(.Document-Exclude *)) {
   --size: var(--size-s);
   --margin-top: var(--size-3xl);
 }
-.Document h6:not(.Document-Exclude):not(.Document-Exclude *) {
+.Document h6:where(:not(.Document-Exclude):not(.Document-Exclude *)) {
   --size: var(--size-xs);
   --margin-top: var(--size-3xl);
 }
 
 /* Hr */
-.Document hr:not(.Document-Exclude):not(.Document-Exclude *) {
+.Document hr:where(:not(.Document-Exclude):not(.Document-Exclude *)) {
   padding: 0;
   margin: 0 auto;
   border: calc(var(--size-l) / 2) solid var(--weak-color);
@@ -504,24 +511,26 @@ body.Document main {
   --margin-top: var(--size-xl);
   width: calc(var(--multiplier-xs) * 100%);
 }
-.Document hr + *:not(.Document-Exclude):not(.Document-Exclude *) {
+.Document hr + *:where(:not(.Document-Exclude):not(.Document-Exclude *)) {
   --margin-top: var(--size-xl);
 }
 
 /* List */
-.Document :is(ul, ol):not(.Document-Exclude):not(.Document-Exclude *) {
+.Document :is(ul, ol):where(:not(.Document-Exclude):not(.Document-Exclude *)) {
   padding: 0;
   padding-left: 4ch;
   --offset-top: -0.532em;
 }
-.Document ul:not(.Document-Exclude):not(.Document-Exclude *) {
+.Document ul:where(:not(.Document-Exclude):not(.Document-Exclude *)) {
   list-style: none;
 }
-.Document ul > li:not(.Document-Exclude):not(.Document-Exclude *) {
+.Document ul > li:where(:not(.Document-Exclude):not(.Document-Exclude *)) {
   position: relative;
   page-break-inside: avoid;
 }
-.Document ul > li:not(.Document-Exclude):not(.Document-Exclude *)::before {
+.Document
+  ul
+  > li:where(:not(.Document-Exclude):not(.Document-Exclude *))::before {
   content: "•";
   position: absolute;
   right: calc(100% + 1ch);
@@ -529,13 +538,13 @@ body.Document main {
 }
 
 /* Table */
-.Document table:not(.Document-Exclude):not(.Document-Exclude *) {
+.Document table:where(:not(.Document-Exclude):not(.Document-Exclude *)) {
   margin-top: var(--margin-top);
   border-spacing: 0 var(--size-xs);
   background-color: var(--weak-color);
   border-radius: var(--size-xs);
 }
-.Document :is(td, th):not(.Document-Exclude):not(.Document-Exclude *) {
+.Document :is(td, th):where(:not(.Document-Exclude):not(.Document-Exclude *)) {
   text-align: left;
   padding: var(--size-s) var(--size-m) var(--size-m);
   vertical-align: top;
@@ -543,15 +552,15 @@ body.Document main {
 }
 
 /* Link */
-.Document a:not(.Document-Exclude):not(.Document-Exclude *) {
+.Document a:where(:not(.Document-Exclude):not(.Document-Exclude *)) {
   color: var(--link-color);
 }
-.Document a:visited:not(.Document-Exclude):not(.Document-Exclude *) {
+.Document a:visited:where(:not(.Document-Exclude):not(.Document-Exclude *)) {
   color: var(--visited-link-color);
 }
 
 /* Button */
-.Document button:not(.Document-Exclude):not(.Document-Exclude *),
+.Document button:where(:not(.Document-Exclude):not(.Document-Exclude *)),
 .Document-Button {
   display: inline-block;
   appearance: none;
@@ -567,7 +576,8 @@ body.Document main {
   position: relative;
   z-index: 0;
 }
-.Document button:not(.Document-Exclude):not(.Document-Exclude *)::before,
+.Document
+  button:where(:not(.Document-Exclude):not(.Document-Exclude *))::before,
 .Document-Button::before {
   content: "";
   display: block;
@@ -585,14 +595,14 @@ body.Document main {
   > :is(button, .Document-Button):first-child:is(
     :last-child,
     :has(+ figcaption)
-  ):not(.Document-Exclude):not(.Document-Exclude *) {
+  ):where(:not(.Document-Exclude):not(.Document-Exclude *)) {
   --size: var(--size-l);
   --margin-top: var(--size);
   padding-bottom: var(--size);
 }
 
 /* Blockquote */
-.Document blockquote:not(.Document-Exclude):not(.Document-Exclude *) {
+.Document blockquote:where(:not(.Document-Exclude):not(.Document-Exclude *)) {
   background-color: var(--accent-bg-color);
   padding-top: calc(var(--size-l) + var(--offset-top));
   padding-bottom: calc(var(--size-l) + var(--offset-bottom));
@@ -606,7 +616,8 @@ body.Document main {
   overflow: hidden;
   position: relative;
 }
-.Document blockquote:not(.Document-Exclude):not(.Document-Exclude *)::before {
+.Document
+  blockquote:where(:not(.Document-Exclude):not(.Document-Exclude *))::before {
   content: "";
   display: block;
   position: absolute;
@@ -618,17 +629,17 @@ body.Document main {
 }
 .Document
   blockquote
-  > p:not(.Document-Exclude):not(.Document-Exclude *):first-child {
+  > p:where(:not(.Document-Exclude):not(.Document-Exclude *)):first-child {
   --margin-top: calc(var(--offset-top) * -1);
 }
 .Document
   blockquote
-  > p:not(.Document-Exclude):not(.Document-Exclude *):last-child {
+  > p:where(:not(.Document-Exclude):not(.Document-Exclude *)):last-child {
   margin-bottom: 0;
 }
 
 /* Code */
-.Document pre:not(.Document-Exclude):not(.Document-Exclude *) {
+.Document pre:where(:not(.Document-Exclude):not(.Document-Exclude *)) {
   color: var(--light-1);
   background-color: var(--dark-4);
   padding-top: calc(var(--size-l) + var(--offset-top));
@@ -643,26 +654,27 @@ body.Document main {
   overflow-x: auto;
 }
 @media (max-width: 42rem) {
-  .Document pre:not(.Document-Exclude):not(.Document-Exclude *) {
+  .Document pre:where(:not(.Document-Exclude):not(.Document-Exclude *)) {
     border-radius: 0px;
   }
 }
-.Document code:not(pre > code):not(.Document-Exclude):not(.Document-Exclude *) {
+.Document
+  code:not(pre > code):where(:not(.Document-Exclude):not(.Document-Exclude *)) {
   color: var(--code-color);
   line-height: 0;
 }
 
 /* Images */
-.Document figure:not(.Document-Exclude):not(.Document-Exclude *) {
+.Document figure:where(:not(.Document-Exclude):not(.Document-Exclude *)) {
   padding: 0;
   margin: 0;
   margin-top: var(--size-xl);
   text-align: center;
 }
 .Document
-  :is(figure > img, figure > picture > img, figure > video):not(
-    .Document-Exclude
-  ):not(.Document-Exclude *) {
+  :is(figure > img, figure > picture > img, figure > video):where(
+    :not(.Document-Exclude):not(.Document-Exclude *)
+  ) {
   border-radius: var(--size-m);
   display: block;
   max-width: 100%;
@@ -673,64 +685,75 @@ body.Document main {
 }
 @media (prefers-color-scheme: dark) {
   .Document
-    :is(figure > img, figure > picture > img, figure > video):not(
-      .Document-Exclude
-    ):not(.Document-Exclude *) {
+    :is(figure > img, figure > picture > img, figure > video):where(
+      :not(.Document-Exclude):not(.Document-Exclude *)
+    ) {
     box-shadow: 0 0 var(--size-m) var(--dark-2);
     background-color: var(--dark-3);
   }
 }
-.Document figcaption:not(.Document-Exclude):not(.Document-Exclude *) {
+.Document figcaption:where(:not(.Document-Exclude):not(.Document-Exclude *)) {
   --margin-top: var(--size-l);
+  padding: 0 10%;
 }
 
-/* Breadcrumbs */
-.Document-Breadcrumbs > ul:not(.Document-Exclude):not(.Document-Exclude *) {
+/* Header */
+.Document-Header,
+.Document-Breadcrumbs:not(.Document-Header .Document-Breadcrumbs) {
   position: absolute;
   top: var(--size-xl);
-  --size: var(--size-l);
-  padding: 0 var(--size-l);
-  --margin-top: 0px;
-  max-width: 40rem;
-  margin-left: auto;
-  margin-right: auto;
   left: 0;
   right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 40rem;
+  padding: 0 var(--size-l);
+}
+.Document-Header {
+  display: flex;
+}
+.Document-Header > .Document-Breadcrumbs {
+  margin-right: auto;
+}
+.Document-Breadcrumbs > ul,
+.Document-Lang.Document-Lang {
+  --size: var(--size-l);
+  padding: 0;
+  --margin-top: 0px;
 }
 @media (max-width: 42rem) {
-  .Document-Breadcrumbs > ul:not(.Document-Exclude):not(.Document-Exclude *) {
+  .Document-Breadcrumbs > ul {
     max-width: unset;
   }
 }
-.Document-Breadcrumbs
-  > ul
-  > li:not(.Document-Exclude):not(.Document-Exclude *) {
+.Document-Breadcrumbs > ul > li,
+.Document-Lang > li {
   display: inline-block;
   --margin-top: 0px;
 }
-.Document-Breadcrumbs
-  > ul
-  > li:not(.Document-Exclude):not(.Document-Exclude *)::before {
+.Document-Breadcrumbs > ul > li::before,
+.Document-Lang > li::before {
   display: none;
 }
-.Document-Breadcrumbs
-  > ul
-  > li
-  > a:not(.Document-Exclude):not(.Document-Exclude *)::after {
+.Document-Breadcrumbs > ul > li > a::after {
   display: inline;
   content: " /";
 }
-.Document-Breadcrumbs
-  :is(a, a:visited):not(.Document-Exclude):not(.Document-Exclude *) {
+.Document-Lang > li:not(:last-child)::after {
+  display: inline;
+  content: " | ";
+}
+.Document-Breadcrumbs :is(a, a:visited),
+.Document-Lang :is(a, a:visited) {
   color: var(--weak-color);
   text-decoration: none;
 }
-.Document-Breadcrumbs a:hover:not(.Document-Exclude):not(.Document-Exclude *) {
+.Document-Breadcrumbs a:hover,
+.Document-Lang a:hover {
   text-decoration: underline;
 }
 @media (max-width: 42rem) {
-  .Document-Breadcrumbs
-    li:not(:last-child):not(.Document-Exclude):not(.Document-Exclude *) {
+  .Document-Breadcrumbs li:not(:last-child) {
     display: none;
   }
 }
