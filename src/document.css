@@ -474,6 +474,7 @@ body.Document main {
   --line-gap: var(--multiplier-m);
   --offset-top: -0.375em;
   --margin-top: var(--size-4xl);
+  letter-spacing: -0.1ex;
 }
 .Document h2:where(:not(.Document-Exclude):not(.Document-Exclude *)) {
   --size: var(--size-xl);
