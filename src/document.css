@@ -627,22 +627,17 @@ body.Document main {
   left: 0;
   right: 0;
   top: calc((var(--size) * var(--multiplier-s) * -1) - var(--offset-top));
-  height: calc(var(--size) * (2 + var(--multiplier-s)));
-  z-index: -1;
-  background-color: var(--light-4);
-  border-radius: calc(var(--size) * var(--multiplier-s));
-}
-.Document kbd:where(:not(.Document-Exclude):not(.Document-Exclude *))::after {
-  content: "";
-  display: block;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: calc((var(--size) * var(--multiplier-s) * -1) - var(--offset-top));
   height: calc(var(--size) * (1 + 2 * var(--multiplier-s)));
   z-index: -1;
   background-color: var(--light-3);
   border-radius: calc(var(--size) * var(--multiplier-s));
+  box-shadow: 0 calc(var(--size) * var(--multiplier-s)) var(--light-4);
+}
+@media (prefers-color-scheme: dark) {
+  .Document
+    kbd:where(:not(.Document-Exclude):not(.Document-Exclude *))::before {
+    box-shadow: 0 calc(var(--size) * var(--multiplier-s)) var(--dark-1);
+  }
 }
 
 /* Blockquote */
@@ -762,6 +757,7 @@ body.Document main {
 .Document-Breadcrumbs > ul,
 .Document-Lang.Document-Lang {
   --size: var(--size-l);
+  font-size: 0;
   padding: 0;
   --margin-top: 0px;
 }
@@ -779,13 +775,16 @@ body.Document main {
 .Document-Lang > li::before {
   display: none;
 }
-.Document-Breadcrumbs > ul > li > a::after {
+.Document-Breadcrumbs > ul > li::after {
   display: inline;
-  content: " /";
+  content: " / ";
+  content: " / ";
+  text-decoration: none !important;
+  color: var(--weak-color);
 }
 .Document-Lang > li:not(:last-child)::after {
   display: inline;
-  content: " | ";
+  content: " | ";
 }
 .Document-Breadcrumbs :is(a, a:visited),
 .Document-Lang :is(a, a:visited) {
