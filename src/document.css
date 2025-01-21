@@ -756,6 +756,10 @@ body.Document main {
 .Document-Header > .Document-Breadcrumbs {
   margin-right: auto;
 }
+.Document-Lang {
+  white-space: nowrap;
+  margin-left: var(--size-l);
+}
 .Document-Breadcrumbs > ul,
 .Document-Lang.Document-Lang {
   --size: var(--size-l);
