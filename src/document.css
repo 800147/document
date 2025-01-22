@@ -578,7 +578,15 @@ body.Document main {
   --margin-top: 0px;
   position: relative;
   z-index: 0;
+  opacity: 1;
+  transition: opacity 0.5s;
+
+  &:active {
+    opacity: 0.8;
+    transition: none;
+  }
 }
+
 .Document
   button:where(:not(.Document-Exclude):not(.Document-Exclude *))::before,
 .Document-Button::before {
