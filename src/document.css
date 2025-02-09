@@ -162,10 +162,12 @@
 .hljs-variable,
 .hljs-property,
 .hljs-attr,
-.hljs-params {
+.hljs-params,
+.hljs-attribute {
   color: var(--blue-1);
 }
-.hljs-title {
+.hljs-title,
+[class*="hljs-selector"] {
   color: var(--yellow-4);
 }
 .hljs-string {
