@@ -747,6 +747,10 @@ body.Document main {
   --margin-top: var(--size-l);
   padding: 0 10%;
 }
+.Document sup:where(:not(.Document-Exclude):not(.Document-Exclude *)) {
+  display: inline-block;
+  margin: -0.25em 0;
+}
 
 /* Header */
 .Document-Header,
