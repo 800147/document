@@ -1,4 +1,4 @@
-/* About Document.css: https://800147.github.io/document/about */
+/* About Document.css: https://800147.github.io/document */
 
 @font-face {
   font-family: "PT Serif";
@@ -149,36 +149,190 @@
 }
 
 /* colors for highlight.js https://highlightjs.org/usage/ */
-.hljs {
-  color: var(--light-2);
+.Document .hljs:not(.Document-Exclude):not(.Document-Exclude *) {
+  color: var(--dark-4);
 }
-.hljs-meta,
-.hljs-comment {
-  color: var(--light-4);
+.Document
+  :is(
+    .hljs-doctag,
+    .hljs-keyword,
+    .hljs-meta .hljs-keyword,
+    .hljs-template-tag,
+    .hljs-template-variable,
+    .hljs-type,
+    .hljs-variable.language_
+  ):not(.Document-Exclude):not(.Document-Exclude *) {
+  color: var(--red-4);
 }
-.hljs-keyword {
-  color: var(--blue-3);
+.Document
+  :is(
+    .hljs-title,
+    .hljs-title.class_,
+    .hljs-title.class_.inherited__,
+    .hljs-title.function_
+  ):not(.Document-Exclude):not(.Document-Exclude *) {
+  color: var(--purple-4);
 }
-.hljs-variable,
-.hljs-property,
-.hljs-attr,
-.hljs-params,
-.hljs-attribute {
-  color: var(--blue-1);
+.Document
+  :is(
+    .hljs-attr,
+    .hljs-attribute,
+    .hljs-property,
+    .hljs-params,
+    .hljs-literal,
+    .hljs-meta,
+    .hljs-number,
+    .hljs-operator,
+    .hljs-selector-attr,
+    .hljs-selector-class,
+    .hljs-selector-id,
+    .hljs-variable
+  ):not(.Document-Exclude):not(.Document-Exclude *) {
+  color: var(--blue-5);
 }
-.hljs-title,
-[class*="hljs-selector"] {
-  color: var(--yellow-4);
+.Document
+  :is(.hljs-meta .hljs-string, .hljs-regexp, .hljs-string):not(
+    .Document-Exclude
+  ):not(.Document-Exclude *) {
+  color: var(--dark-3);
 }
-.hljs-string {
-  color: var(--orange-2);
+.Document
+  :is(.hljs-built_in, .hljs-symbol):not(.Document-Exclude):not(
+    .Document-Exclude *
+  ) {
+  color: var(--orange-4);
 }
-.hljs-literal,
-.hljs-number {
-  color: var(--purple-1);
+.Document
+  :is(.hljs-code, .hljs-tag, .hljs-comment, .hljs-formula):not(
+    .Document-Exclude
+  ):not(.Document-Exclude *) {
+  color: var(--light-5);
 }
-.hljs-tag {
-  color: var(--brown-1);
+.Document
+  :is(.hljs-name, .hljs-quote, .hljs-selector-pseudo, .hljs-selector-tag):not(
+    .Document-Exclude
+  ):not(.Document-Exclude *) {
+  color: var(--green-5);
+}
+.Document .hljs-subst:not(.Document-Exclude):not(.Document-Exclude *) {
+  color: var(--dark-4);
+}
+.Document .hljs-section:not(.Document-Exclude):not(.Document-Exclude *) {
+  color: var(--blue-5);
+  /* font-weight:700 */
+}
+.Document .hljs-bullet:not(.Document-Exclude):not(.Document-Exclude *) {
+  color: var(--brown-4);
+}
+.Document .hljs-emphasis:not(.Document-Exclude):not(.Document-Exclude *) {
+  color: var(--dark-4);
+  /* font-style:italic; */
+}
+.Document .hljs-strong:not(.Document-Exclude):not(.Document-Exclude *) {
+  color: var(--dark-4);
+  /* font-weight:700; */
+}
+.Document .hljs-addition:not(.Document-Exclude):not(.Document-Exclude *) {
+  color: var(--green-5);
+  background-color: var(--green-1);
+}
+.Document .hljs-deletion:not(.Document-Exclude):not(.Document-Exclude *) {
+  color: var(--red-5);
+  background-color: var(--red-1);
+}
+
+@media (prefers-color-scheme: dark) {
+  .Document .hljs:not(.Document-Exclude):not(.Document-Exclude *) {
+    color: var(--light-2);
+  }
+  .Document
+    :is(
+      .hljs-doctag,
+      .hljs-keyword,
+      .hljs-meta .hljs-keyword,
+      .hljs-template-tag,
+      .hljs-template-variable,
+      .hljs-type,
+      .hljs-variable.language_
+    ):not(.Document-Exclude):not(.Document-Exclude *) {
+    color: var(--red-1);
+  }
+  .Document
+    :is(
+      .hljs-title,
+      .hljs-title.class_,
+      .hljs-title.class_.inherited__,
+      .hljs-title.function_
+    ):not(.Document-Exclude):not(.Document-Exclude *) {
+    color: var(--purple-1);
+  }
+  .Document
+    :is(
+      .hljs-attr,
+      .hljs-attribute,
+      .hljs-property,
+      .hljs-params,
+      .hljs-literal,
+      .hljs-meta,
+      .hljs-number,
+      .hljs-operator,
+      .hljs-selector-attr,
+      .hljs-selector-class,
+      .hljs-selector-id,
+      .hljs-variable
+    ):not(.Document-Exclude):not(.Document-Exclude *) {
+    color: var(--blue-2);
+  }
+  .Document
+    :is(.hljs-meta .hljs-string, .hljs-regexp, .hljs-string):not(
+      .Document-Exclude
+    ):not(.Document-Exclude *) {
+    color: var(--blue-1);
+  }
+  .Document
+    :is(.hljs-built_in, .hljs-symbol):not(.Document-Exclude):not(
+      .Document-Exclude *
+    ) {
+    color: var(--orange-2);
+  }
+  .Document
+    :is(.hljs-code, .hljs-tag, .hljs-comment, .hljs-formula):not(
+      .Document-Exclude
+    ):not(.Document-Exclude *) {
+    color: var(--light-5);
+  }
+  .Document
+    :is(.hljs-name, .hljs-quote, .hljs-selector-pseudo, .hljs-selector-tag):not(
+      .Document-Exclude
+    ):not(.Document-Exclude *) {
+    color: var(--green-2);
+  }
+  .Document .hljs-subst:not(.Document-Exclude):not(.Document-Exclude *) {
+    color: var(--light-4);
+  }
+  .Document .hljs-section:not(.Document-Exclude):not(.Document-Exclude *) {
+    color: var(--blue-4);
+    /* font-weight:700; */
+  }
+  .Document .hljs-bullet:not(.Document-Exclude):not(.Document-Exclude *) {
+    color: var(--yellow-4);
+  }
+  .Document .hljs-emphasis:not(.Document-Exclude):not(.Document-Exclude *) {
+    color: var(--light-4);
+    /* font-style:italic; */
+  }
+  .Document .hljs-strong:not(.Document-Exclude):not(.Document-Exclude *) {
+    color: var(--light-4);
+    /* font-weight:700; */
+  }
+  .Document .hljs-addition:not(.Document-Exclude):not(.Document-Exclude *) {
+    color: var(--green-1);
+    background-color: var(--green-5);
+  }
+  .Document .hljs-deletion:not(.Document-Exclude):not(.Document-Exclude *) {
+    color: var(--red-1);
+    background-color: var(--red-5);
+  }
 }
 
 :root {
@@ -691,8 +845,8 @@ body.Document main {
 
 /* Code */
 .Document pre:where(:not(.Document-Exclude):not(.Document-Exclude *)) {
-  color: var(--light-1);
-  background-color: var(--dark-4);
+  color: var(--dark-4);
+  background-color: var(--light-2);
   padding-top: calc(var(--size-l) + var(--offset-top));
   padding-bottom: calc(var(--size-l) + var(--offset-bottom));
   padding-left: var(--size-l);
@@ -703,6 +857,12 @@ body.Document main {
   margin-bottom: 0;
   border-radius: var(--size-l);
   overflow-x: auto;
+}
+@media (prefers-color-scheme: dark) {
+  .Document pre:where(:not(.Document-Exclude):not(.Document-Exclude *)) {
+    color: var(--light-2);
+    background-color: var(--dark-4);
+  }
 }
 @media (max-width: 42rem) {
   .Document pre:where(:not(.Document-Exclude):not(.Document-Exclude *)) {
