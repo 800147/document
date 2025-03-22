@@ -648,6 +648,7 @@ body.Document main {
 }
 .Document h3:where(:not(.Document-Exclude):not(.Document-Exclude *)) {
   --size: var(--size-l);
+  --line-gap: var(--multiplier-m);
   --margin-top: var(--size-3xl);
 }
 .Document h4:where(:not(.Document-Exclude):not(.Document-Exclude *)) {
