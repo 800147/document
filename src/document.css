@@ -714,9 +714,21 @@ body.Document main {
 }
 .Document :is(td, th):where(:not(.Document-Exclude):not(.Document-Exclude *)) {
   text-align: left;
-  padding: var(--size-s) var(--size-m) var(--size-m);
+  padding: var(--size-s) calc(var(--size-xl) / 2) var(--size-m);
   vertical-align: top;
   background-color: var(--light-2);
+}
+.Document
+  :is(td, th):first-child:where(
+    :not(.Document-Exclude):not(.Document-Exclude *)
+  ) {
+  padding-left: var(--size-l);
+}
+.Document
+  :is(td, th):last-child:where(
+    :not(.Document-Exclude):not(.Document-Exclude *)
+  ) {
+  padding-right: var(--size-l);
 }
 @media (prefers-color-scheme: dark) {
   .Document table:where(:not(.Document-Exclude):not(.Document-Exclude *)) {
