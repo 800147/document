@@ -674,7 +674,9 @@ body.Document main {
   border-radius: var(--size-xs);
   margin-top: var(--margin-top);
   --margin-top: var(--size-xl);
-  width: calc(var(--multiplier-xs) * 100%);
+  width: 0;
+  box-shadow: calc(var(--size-l) * 2) 0 var(--weak-color),
+    calc(var(--size-l) * -2) 0 var(--weak-color);
 }
 .Document hr + *:where(:not(.Document-Exclude):not(.Document-Exclude *)) {
   --margin-top: var(--size-xl);
@@ -737,7 +739,6 @@ body.Document main {
 /* Button */
 .Document button:where(:not(.Document-Exclude):not(.Document-Exclude *)),
 .Document-Button {
-  display: inline-block;
   appearance: none;
   border: none;
   background-color: transparent;
@@ -786,21 +787,19 @@ body.Document main {
 
 /* Kbd */
 .Document kbd:where(:not(.Document-Exclude):not(.Document-Exclude *)) {
-  display: inline-block;
   appearance: none;
   border: none;
   background-color: transparent;
+  white-space: nowrap;
   color: var(--dark-4);
   --link-color: var(--bg-color);
   --visited-link-color: var(--bg-color);
   text-decoration: none;
   --size: inherit;
-  padding: 0 calc(var(--size) * var(--multiplier-xs));
+  padding: 0 calc(var(--size) * var(--multiplier-s));
   --margin-top: 0px;
   position: relative;
   z-index: 0;
-  min-width: calc(var(--size) * var(--multiplier-l));
-  text-align: center;
 }
 .Document kbd:where(:not(.Document-Exclude):not(.Document-Exclude *))::before {
   content: "";
@@ -1023,6 +1022,9 @@ body.Document main {
   pointer-events: all;
   cursor: grab;
 }
+.Document-Rulers:has(.Document-Ruler_xs) .Document-Ruler {
+  right: calc((100% - var(--width)) / 7 * var(--n));
+}
 
 .Document-Ruler_4xl {
   --n: 0;
@@ -1053,6 +1055,16 @@ body.Document main {
   --n: 5;
   --size: var(--size-m);
   --color: var(--red-5);
+}
+.Document-Ruler_s {
+  --n: 6;
+  --size: var(--size-s);
+  --color: var(--purple-5);
+}
+.Document-Ruler_xs {
+  --n: 7;
+  --size: var(--size-xs);
+  --color: var(--blue-5);
 }
 
 @media (max-width: 42rem) {
