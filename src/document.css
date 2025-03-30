@@ -792,6 +792,7 @@ body.Document main {
     :last-child,
     :has(+ figcaption)
   ):where(:not(.Document-Exclude):not(.Document-Exclude *)) {
+  display: inline-block;
   --size: var(--size-l);
   --margin-top: var(--size);
   padding-bottom: var(--size);
