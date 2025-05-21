@@ -1,7 +1,7 @@
 // about: https://800147.github.io/document/md-reader
 
 // https://markdown-it.github.io/markdown-it/
-import "https://cdn.jsdelivr.net/npm/markdown-it@13.0.1/dist/markdown-it.min.js";
+import "../lib/markdown-it.min.js";
 
 // pre tag hide
 const preNoscript = document.querySelector(
@@ -30,9 +30,7 @@ document.body.appendChild(main);
 if (document.querySelector("pre>code:first-child:last-child")) {
   (async () => {
     // https://highlightjs.org/usage/
-    const { default: hljs } = await import(
-      "https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/es/highlight.min.js"
-    );
+    const { default: hljs } = await import("../lib/highlight.min.js");
     hljs.highlightAll();
   })();
 }

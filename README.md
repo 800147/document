@@ -2,4 +2,7 @@
 
 ![icon](./favicon.svg)
 
-<https://800147.github.io/document>
+Document.css — is styles that are applied to any element inside the one
+with "Document" class.
+
+Description: <https://800147.github.io/document/>
