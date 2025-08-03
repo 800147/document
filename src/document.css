@@ -765,6 +765,7 @@ body.Document main {
   z-index: 0;
   opacity: 1;
   transition: opacity 0.5s;
+  white-space: nowrap;
 
   &:active {
     opacity: 0.8;
