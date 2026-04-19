@@ -5,7 +5,7 @@ import "../lib/markdown-it.min.js";
 
 // pre tag hide
 const preNoscript = document.querySelector(
-  "pre>noscript:first-child:last-child"
+  "pre>noscript:first-child:last-child",
 );
 
 if (preNoscript) {
@@ -17,14 +17,17 @@ document.body.classList.add("Document");
 
 // convert markdown
 const md = document.querySelector("noscript").innerText;
-const main = document.createElement("main");
+let main = document.querySelector("main");
+
+if (!main) {
+  main = document.createElement("main");
+  preNoscript.parentNode.parentNode.insertBefore(main, preNoscript.parentNode);
+}
 
 main.insertAdjacentHTML(
   "afterbegin",
-  window.markdownit({ html: true, xhtmlOut: true, linkify: true }).render(md)
+  window.markdownit({ html: true, xhtmlOut: true, linkify: true }).render(md),
 );
-
-document.body.appendChild(main);
 
 // run highlightjs if there is at least one code block
 if (document.querySelector("pre>code:first-child:last-child")) {
