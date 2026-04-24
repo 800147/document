@@ -483,8 +483,12 @@ body.Document main {
       pre,
       blockquote,
       ul,
+      ol,
       figcaption,
-      table
+      table,
+      dl,
+      dt,
+      dd
     ):where(:not(.Document-Exclude):not(.Document-Exclude *)),
   .Document-Text
 ) {
@@ -493,22 +497,22 @@ body.Document main {
 }
 .Document
   li
-  > ul:not(
-    :is(section, p, h1, h2, h3, h4, h5, h6, pre, blockquote, ul) + *
+  > :is(ul, ol):not(
+    :is(section, p, h1, h2, h3, h4, h5, h6, pre, blockquote, ul, ol) + *
   ):where(:not(.Document-Exclude):not(.Document-Exclude *)) {
   --margin-top: calc(var(--offset-bottom) * -1);
 }
 .Document
   li
   > :is(section, p, h1, h2, h3, h4, h5, h6, pre, blockquote):not(
-    :is(section, p, h1, h2, h3, h4, h5, h6, pre, blockquote, ul) + *
+    :is(section, p, h1, h2, h3, h4, h5, h6, pre, blockquote, ul, ol) + *
   ):where(:not(.Document-Exclude):not(.Document-Exclude *)) {
   --margin-top: calc(var(--size-xl) + var(--offset-top) - var(--offset-bottom));
 }
 .Document section:where(:not(.Document-Exclude):not(.Document-Exclude *)) {
   margin-top: var(--margin-top);
 }
-.Document ul:where(:not(.Document-Exclude):not(.Document-Exclude *)) {
+.Document :is(ul, ol):where(:not(.Document-Exclude):not(.Document-Exclude *)) {
   margin-top: calc(var(--margin-top) + var(--offset-top));
 }
 
@@ -530,7 +534,10 @@ body.Document main {
     figcaption,
     td,
     th,
-    kbd
+    kbd,
+    dl,
+    dt,
+    dd
   ):where(:not(.Document-Exclude):not(.Document-Exclude *)),
 .Document-Breadcrumbs ul,
 .Document-Lang,
@@ -553,7 +560,7 @@ body.Document main {
   word-break: break-word;
 }
 .Document
-  :is(p, li, q, blockquote):where(
+  :is(p, li, q, blockquote, dl, dt, dd):where(
     :not(.Document-Exclude):not(.Document-Exclude *)
   ),
 .Document-Text,
@@ -948,6 +955,18 @@ body.Document main {
   .Document-Autodark {
     filter: hue-rotate(180deg) invert();
   }
+}
+
+/* Definition */
+.Document dd:where(:not(.Document-Exclude):not(.Document-Exclude *)) {
+  --margin-top: var(--size-l);
+  margin-left: var(--size-2xl);
+}
+
+.Document
+  dd
+  > :first-child:where(:not(.Document-Exclude):not(.Document-Exclude *)) {
+  --margin-top: var(--size-l);
 }
 
 /* Strikethrough */
